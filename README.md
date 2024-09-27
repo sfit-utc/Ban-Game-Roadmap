@@ -1,5 +1,5 @@
 # Rule
-Chỉ làm việc trên nhánh cá nhân
+Chỉ làm việc trên nhánh cá nhân  
 Sau khi push xong thì tạo pull request
 
 Chỉ dùng 3 loại commit: 
