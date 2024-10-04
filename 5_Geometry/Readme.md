@@ -7,7 +7,6 @@
 <p><b>Đoạn thẳng: </b>Đoạn thẳng giới hạn bởi hai điểm đầu cuối, không kéo dài vô hạn</p>
 <p><b>Tia: </b>Tia bị giới hạn tại một đầu và kéo dài vô hạn về phía còn lại</p>
 <p><b>Mặt phẳng: </b>Mặt phẳng là một bề mặt phẳng hai chiều kéo dài vô hạn. </p>
-<p><b>Mặt phẳng: </b>Mặt phẳng là một bề mặt kéo dài vô tận về 2 chiều. </p>
 <p><b>Đa giác: </b>Đa giác là hình khép kín được tạo thành từ tối thiểu ba điểm. Đường nối giữa các điểm được gọi là cạnh của đa giác.</p>
 
 <h3>1.2. Hệ tọa độ Descartes</h3>
@@ -20,21 +19,20 @@
 <div style="text-align: center;">
   <img src="./images/3-dimentions.png" alt="">
 </div>
-<p>Trong Unity, tất cả các Object đều có Component Transform giúp người dùng lưu trữ và thao tác với vị trí, xoay Object và điều chỉnh kích thước của Object</p>
+<p>Trong Unity, các thuộc tính về vị trí, góc quay và tỉ lệ cu GameObject sẽ được lưu trong Component Transform hoặc RectTransform</p>
 <div style="text-align: center;">
   <img src="./images/trasform-component.png" alt="">
 </div>
 
-<p><b>Khoảng cách giữa hai điểm trong không gian: </b>
-</p>
+<p><b>Khoảng cách giữa hai điểm trong không gian: </b></p>
 
 <h2>2. Hình học lượng giác</h2>
 <h3>2.1. Các hàm lượng giác</h2>
 <p>Trong quá trình phát triển trò chơi, có rất nhiều tình huống bạn cần sử dụng các hàm lượng giác.
-Các hàm được sử dụng để tính góc của một tam giác có một góc bằng 90 độ. Bằng cách chuyển đổi
+Các hàm được sử dụng để tính góc của một tam giác vuông. Bằng cách chuyển đổi
 phương trình, cũng có thể tính được cạnh của một tam giác khi biết một góc cho trước.
 Những tính toán này cũng có ích đối với hình tròn. </p>
-</p>Xét tam giác ABC vuông tại A với một góc nhọn &alpha;, các hàm lượng giác trên góc &alpha; sẽ được tính toán như sau: </p>
+<p>Xét tam giác ABC vuông tại A với một góc nhọn &alpha;, các hàm lượng giác trên góc &alpha; sẽ được tính toán như sau: </p>
 <div style="text-align: center;">
   <img src="./images/triangle.png" alt="">
 </div>
@@ -48,13 +46,13 @@ Những tính toán này cũng có ích đối với hình tròn. </p>
   <img src="./images/polar-system.png" alt="">
 </div>
 <p><b>Điểm cực (O): </b>Điểm này tương ứng với gốc tọa độ trong tọa độ Descartes</p>
-<p><b>Trục cực (O): </b>Trục cực thường được vẽ nằm ngang về phía bên phải tương ứng với trục Ox dương trong tọa độ Descartes</p>
+<p><b>Trục cực (Ox): </b>Trục cực thường được vẽ nằm ngang về phía bên phải tương ứng với trục Ox dương trong tọa độ Descartes</p>
 <p><b>Tọa độ cực(r, &phi;): </b>Gọi P là một điểm bất kì nằm trong mặt phẳng, cho r là khoảng cách từ O đến P và &phi; là góc giữa trục cực và đường thẳng OP. Điểm P được biểu diễn bởi cặp số (r, &phi;) gọi là tọa độ cực của P</p>
 <p>Quy ước: Chiều dương ngược chiều kim đồng hồ. </p>
 
 <h3>2.3. Chuyển đổi giữa tọa độ cực và tọa độ Descartes</h3>
 <h4>Chuyển đổi từ tọa độ cực sang tọa độ Descartes</h4>
-<p>Các tọa độ cực có thể được chuyển đổi sang hệ tọa độ Descartes thông qua các hàm lượng giác Sin và Cos. </p>
+<p>Các tọa độ cực có thể được chuyển đổi sang hệ tọa độ Descartes thông qua các hàm lượng giác</p>
 <p>
 <p>Xét điểm P(x,y) trong tọa độ cực, bán kính r và góc quay &phi;, tọa độ của điểm P trong hệ tọa độ Descartes sẽ được tính toán như dưới đây: </p>
 <b>x = rcos(&phi;)</b> <br>
@@ -104,7 +102,9 @@ Những tính toán này cũng có ích đối với hình tròn. </p>
 <h2>3. Các thuật toán về hình học và giao điểm</h2>
 <h2>Các thuật toán phát hiện va chạm</h2>
 <h3>Thuật toán AABB (Axis-aligned bounding boxes)</h3>
-<p>Cơ bản, thuật toán AABB sẽ bọc các vật thể bằng một khối hộp và kiểm tra vị trí của các hộp (Các hộp này phải đứng yên và không được xoay quanh các trục) này xem chúng có chồng lên nhau không. Ràng buộc các hộp không được quay xung quanh vì mục đích về hiệu suất. Phần diện tích tiếp xúc giữa hai khối hộp không xoay có thể được kiểm tra chỉ với các phép so sánh logic cơ bản, trong khi với khối hộp có thể xoay thì đòi hỏi các phép toán về lượng giác, chậm hơn khi tính toán.</p>
+<b>Mục đích sử dụng</b>
+<p>Kiểm tra va chạm của 2 vật trong không gian 2D</p>
+
 <b>Kiểm tra một điểm có nằm trong AABB</b>
 <p>Giả sử Px, Py, Pz là tọa độ của điểm P đang xét, phạm vi của mỗi trục trong AABB lần lượt là các giá trị B<sub>minX</sub> - B<sub>maxX</sub>, B<sub>minY</sub> - B<sub>maxY</sub>, B<sub>minZ</sub> - B<sub>maxZ</sub>, chúng ta có thể tính toán xem có xảy ra va chạm không dựa trên công thức: 
 </p>
@@ -121,3 +121,6 @@ Những tính toán này cũng có ích đối với hình tròn. </p>
 <div style="text-align: center;">
   <img src="./images/AABB-pseudocode-2.png" alt="">
 </div>
+<b>Lưu ý</b>
+<p>2 vật thể không xoay: chỉ cần các phép so sánh logic cơ bản</p>
+<p>2 vật thể có thể xoay: cần các phép toán về lượng giác</p>

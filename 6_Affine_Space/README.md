@@ -1,0 +1,4 @@
+Không gian affine A được định nghĩa như một tập hợp các điểm cùng với một không gian vector liên kết V. Nếu A là một không gian affine và V là không gian vector liên kết với A, thì với mỗi cặp điểm P, Q trong A, có thể định nghĩa một vector PQ ∈ V.
+Không gian affine được mô tả với các thuộc tính sau:
+- Không gian affine không có gốc tọa độ cố định. Các phép toán trong không gian affine như cộng và trừ vector vẫn giữ nguyên ý nghĩa như trong không gian vector, nhưng không tồn tại phép cộng hai điểm trong không gian affine. 
+- Các phép biến đổi trong không gian affine bao gồm phép tịnh tiến (translation) và các phép biến đổi tuyến tính như quay, dãn, phản chiếu, kéo (rotation, scaling, reflection, shear).
